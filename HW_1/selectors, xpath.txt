@@ -1,0 +1,35 @@
+1. Manufacturers
+$(".manufacturers.dropdown>a.dropdown-toggle");
+$x("//li[contains(@class, 'manufacturers')]");
+
+2. Sign in
+$$("li.account>a.dropdown-toggle")
+$x("//li[contains(@class, 'account')]")
+
+3. Recently viewed
+$$("#box-recently-viewed-products div.products div:nth-child(3)")
+$x("//section[@id='box-recently-viewed-products']//div[3]")
+
+4. Popular products
+$$("#box-popular-products > div > article:nth-child(3) > a > div.image-wrapper > img")
+$x('//*[@id="box-popular-products"]/div/article[3]/a/div[1]/img');
+
+5. Price 
+$$("#box-latest-products > div > article:nth-child(1) > a > div.info > div.price-wrapper > strong")
+$x('//*[@id="box-latest-products"]/div/article[1]/a/div[2]/div[2]/strong')
+
+6. Latest Products
+$$("#box-latest-products > div > article:nth-child(3)")
+$x('//*[@id="box-latest-products"]/div/article[3]')
+
+7. Email form
+$$("#default-menu > ul.nav.navbar-nav.navbar-right > li.account.dropdown.open > ul > li:nth-child(1) > form > div.form-group.required > div > input")
+$x('//*[@id="default-menu"]/ul[2]/li[2]/ul/li[1]/form/div[1]/div/input')
+
+7. Password form
+$$("#default-menu > ul.nav.navbar-nav.navbar-right > li.account.dropdown.open > ul > li:nth-child(1) > form > div:nth-child(3) > div > input")
+$x('//*[@id="default-menu"]/ul[2]/li[2]/ul/li[1]/form/div[2]/div/input')
+
+8. New customers
+$$("#default-menu > ul.nav.navbar-nav.navbar-right > li.account.dropdown.open > ul > li:nth-child(2) > a")
+$x('//*[@id="default-menu"]/ul[2]/li[2]/ul/li[2]/a')
