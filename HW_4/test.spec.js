@@ -3,9 +3,14 @@ const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
 
+    const pref = new webdriver.logging.Preferences();
+    pref.setLevel(webdriver.logging.Type.BROWSER, webdriver.logging.Level.DEBUG);
 
 
-const driver = new webdriver.Builder().forBrowser('chrome').build();
+const driver = new webdriver.Builder()
+  .forBrowser('chrome')
+  .setLoggingPrefs(pref)
+  .build();
 
 const url = "http://158.101.173.161";
 const login = "testadmin";
@@ -31,12 +36,20 @@ async function authorization () {
 }
 
 async function openWindow(elem){
+  await driver.manage().logs().get(webdriver.logging.Type.BROWSER).then(function(entries) {
+    console.log(entries);
+  });
+
   await driver.findElement(By.css(elem)).click()
   let tabs = await driver.getAllWindowHandles()
   await driver.sleep(1000)
   await driver.switchTo().window(tabs[1]);
   await driver.close();
   await driver.switchTo().window(tabs[0]);
+
+  await driver.manage().logs().get(webdriver.logging.Type.BROWSER).then(function(entries) {
+    console.log(entries.level);
+  });
 } 
 
 async function main () {
@@ -56,4 +69,5 @@ async function main () {
   
 
 }
+
 main();
